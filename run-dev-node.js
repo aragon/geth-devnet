@@ -33,5 +33,4 @@ function setupDevNode() {
   }
 }
 
-createAccounts();
 setupDevNode();
