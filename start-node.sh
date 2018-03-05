@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 DATADIR="$HOME/.ethdata"
+ETHERBASE='0x1f7402f55e142820ea3812106d0657103fc1709e'
+
 
 # Generate and store a wallet password
 if [ ! -f $DATADIR ]; then
@@ -13,8 +15,6 @@ start_poa_network() {
     echo "Starting PoA network"
 
     # hardcoded address of first account in keystore
-    ETHERBASE='0x1f7402f55e142820ea3812106d0657103fc1709e'
-
     # initialize our private network
     geth \
     --datadir $DATADIR \
@@ -48,13 +48,12 @@ start_instantseal_network() {
     --dev.period 1 \
     --targetgaslimit '6900000' \
     --datadir $DATADIR \
+    --etherbase $ETHERBASE \
     --networkid 15 \
     --nodiscover \
     js ./run-dev-node.js
 }
 
-echo "is dev chain:"
-echo $DEV_CHAIN_ENABLED
 if [ $DEV_CHAIN_ENABLED == true ]; then
     start_instantseal_network
 else
