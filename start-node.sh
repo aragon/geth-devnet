@@ -44,6 +44,10 @@ start_instantseal_network() {
     --rpcaddr '0.0.0.0' \
     --rpcport 8545 \
     --rpccorsdomain '*' \
+    --ws \
+    --wsaddr '0.0.0.0' \
+    --wsport 8546 \
+    --wsorigins '*' \
     --dev \
     --dev.period 1 \
     --targetgaslimit '6900000' \
