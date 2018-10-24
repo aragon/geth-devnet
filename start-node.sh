@@ -53,7 +53,7 @@ start_instantseal_network() {
     --targetgaslimit '6900000' \
     --datadir $DATADIR \
     --etherbase $ETHERBASE \
-    --networkid 15 \
+    --networkid ${NETWORK_ID} \
     --nodiscover \
     js ./run-dev-node.js
 }
