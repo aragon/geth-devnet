@@ -1,4 +1,4 @@
-FROM ethereum/client-go:v1.7.3
+FROM ethereum/client-go:v1.8.18
 MAINTAINER Chris Purta <cpurta@gmail.com>
 
 ARG dev_chain
