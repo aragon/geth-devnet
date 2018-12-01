@@ -30,6 +30,7 @@ start_poa_network() {
     --rpccorsdomain '*' \
     --datadir $DATADIR \
     --networkid 454545 \
+    --shh \
     --etherbase $ETHERBASE \
     --targetgaslimit '6500000' \
     js ./run-poa-node.js
@@ -44,6 +45,7 @@ start_instantseal_network() {
     --rpcaddr '0.0.0.0' \
     --rpcport 8545 \
     --rpccorsdomain '*' \
+    --shh \
     --ws \
     --wsaddr '0.0.0.0' \
     --wsport 8546 \
