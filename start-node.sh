@@ -2,7 +2,7 @@
 
 DATADIR="$HOME/.ethdata"
 ETHERBASE='0x1f7402f55e142820ea3812106d0657103fc1709e'
-
+GASLIMIT='8000000'
 
 # Generate and store a wallet password
 if [ ! -f $DATADIR ]; then
@@ -20,7 +20,7 @@ start_poa_network() {
     --datadir $DATADIR \
     --networkid 454545 \
     --etherbase $ETHERBASE \
-    --targetgaslimit '6500000' \
+    --targetgaslimit $GASLIMIT \
     init ./genesis.json
 
     geth \
@@ -32,7 +32,7 @@ start_poa_network() {
     --networkid 454545 \
     --shh \
     --etherbase $ETHERBASE \
-    --targetgaslimit '6500000' \
+    --targetgaslimit $GASLIMIT \
     js ./run-poa-node.js
 }
 
@@ -52,7 +52,7 @@ start_instantseal_network() {
     --wsorigins '*' \
     --dev \
     --dev.period 1 \
-    --targetgaslimit '6900000' \
+    --targetgaslimit $GASLIMIT \
     --datadir $DATADIR \
     --etherbase $ETHERBASE \
     --networkid ${NETWORK_ID} \
