@@ -1,7 +1,12 @@
-function unlockAccounts() {
+function unlockAndFundAccounts() {
+  firstAccount = eth.accounts[0]
   eth.accounts.forEach(function (account) {
     console.log('Unlocking ' + account + '...');
     personal.unlockAccount(account, '', 86400);
+    if (account !== firstAccount) {
+      console.log('Sending 10K ETH to ' + account + '...')
+      eth.sendTransaction({ from: firstAccount, to: account, value: web3.toWei(10000, "ether") });
+    }
   });
 }
 
@@ -32,5 +37,5 @@ function setupDevNode() {
   });
 }
 
-unlockAccounts();
+unlockAndFundAccounts();
 setupDevNode();
